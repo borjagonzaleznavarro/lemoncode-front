@@ -1,0 +1,47 @@
+$element-height: 64px;
+$bgcolor: #111;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    padding: 20px;
+
+    ul {
+        background-color: $bgcolor;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    a {
+        display: block;
+        padding: 0 10px;
+        color: #fff;
+        text-decoration: none;
+        line-height: $element-height;
+        text-align: center;
+
+        &:hover {
+            background-color: lighten($bgcolor, 10);
+        }
+
+        &.active {
+            background-color: lighten($bgcolor, 20);
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 0;
+
+        ul {
+            flex-direction: row;
+        }
+    }
+}

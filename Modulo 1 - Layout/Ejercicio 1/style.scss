@@ -1,0 +1,37 @@
+@mixin palette($bg-color) {
+    $iterations: 4;
+
+    @for $i from 1 through $iterations {
+        &.darken-#{$i} {
+            background-color: darken($bg-color, $i * 8%);
+        }
+
+        &.lighten-#{$i} {
+            background-color: lighten($bg-color, $i * 8%);
+        }
+    }
+}
+
+$colors: red, blue, green;
+
+@each $color in $colors {
+    .container-#{$color} {
+        .box {
+            background-color: $color;
+            @include palette($color);
+        }
+    }
+}
+
+.container {
+    display: flex;
+    color: #fff;
+}
+
+.box {
+    flex: 1;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+
+}
