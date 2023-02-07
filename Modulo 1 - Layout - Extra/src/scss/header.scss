@@ -1,0 +1,47 @@
+header {
+    .toolbar {
+        height: $base-element-height;
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0 $base-spacing;
+
+        .username {
+            margin-left: auto;
+        }
+    }
+
+    .searchbar {
+        border: 1px solid darken($bg-color, 10);
+        height: 28px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        input {
+            flex: 1;
+            padding-left: $base-spacing / 2;
+            color: lighten($text-color, 40);
+        }
+
+        button {
+            padding: 0 $base-spacing / 2;
+            cursor: pointer;
+        }
+    }
+
+    .page-title {
+        background-color: $base-color;
+        height: $base-element-height;
+        color: $text-color-inverted;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0 $base-spacing;
+    }
+}

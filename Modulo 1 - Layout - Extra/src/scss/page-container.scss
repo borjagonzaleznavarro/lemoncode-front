@@ -1,0 +1,13 @@
+@import 'nav';
+@import 'main-content';
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+
+    @media (max-width: $breakpoint) {
+        flex-direction: column;
+    }
+}

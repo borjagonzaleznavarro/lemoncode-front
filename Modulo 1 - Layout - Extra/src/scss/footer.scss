@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 $base-spacing;
+    height: $base-element-height;
+    line-height: $base-element-height;
+    background-color: $dark-color;
+    color: $text-color-inverted;
+}

@@ -1,0 +1,50 @@
+nav {
+    width: 260px;
+    background-color: #fff;
+
+    .menu-container {
+        position: sticky;
+        top: 0;
+    }
+
+    .menu-title {
+        height: $base-element-height;
+        line-height: $base-element-height;
+        padding: 0 $base-spacing;
+        font-weight: bold;
+    }
+
+    li {
+        height: $base-element-height;
+        line-height: $base-element-height;
+        padding: 0 $base-spacing;
+        border-top: 1px solid darken($bg-color, 10);
+
+        &:last-child {
+            border-bottom: 1px solid darken($bg-color, 10);
+        }
+    }
+
+    @media (max-width: $breakpoint) {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        border-bottom: 1px solid darken($bg-color, 10);
+        z-index: 1;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            overflow-y: hidden;
+            overflow-x: auto;
+        }
+
+        li {
+            border: none;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
