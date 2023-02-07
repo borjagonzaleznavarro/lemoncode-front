@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
+@import 'reset';
+@import 'variables';
+@import 'header';
+@import 'items';
+
+/* GENERAL */
+body {
+    background-color: $bgcolor;
+    color: $text-color;
+    font-family: $base-font;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+}
+
+main {
+    margin-top: $header-height;
+    padding: $base-spacing;
+}

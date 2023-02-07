@@ -1,0 +1,48 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: $base-spacing;
+    height: $header-height;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.platform-title {
+    margin-left: $base-spacing / 2;
+    font-size: 1.2em;
+
+    @media (max-width: $breakpoint-desktop) {
+        display: none;
+    }
+}
+
+.header-buttons {
+    display: flex;
+    
+    a {
+        height: $base-element-height;
+        line-height: $base-element-height;
+        border-radius: $base-border-radius;
+        padding: 0 $base-spacing / 2;
+        margin-left: $base-spacing / 2;
+
+        &:hover {
+            background-color: #fff;
+            color: $bgcolor;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 1.2em;
+        }
+    }
+}
