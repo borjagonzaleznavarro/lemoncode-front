@@ -32,5 +32,3 @@ machine1.play();
 machine1.play();
 machine1.play();
 machine1.play();
-machine1.play();
-machine1.play();
