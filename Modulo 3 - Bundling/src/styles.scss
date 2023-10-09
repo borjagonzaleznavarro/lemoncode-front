@@ -1,0 +1,13 @@
+$background-color: indianred;
+
+h1 {
+    background-color: antiquewhite;
+    padding: 20px;
+}
+.red-background {
+    background-color: $background-color;
+}
+
+img {
+    width: 200px;
+}
