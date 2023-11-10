@@ -1,0 +1,15 @@
+$height: 38px;
+
+.pagination-content {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  height: $height;
+  line-height: $height;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.pagination {
+  flex-grow: 1;
+  text-align: center;
+}

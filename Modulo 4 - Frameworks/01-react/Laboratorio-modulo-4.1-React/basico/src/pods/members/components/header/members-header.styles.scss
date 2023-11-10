@@ -1,0 +1,13 @@
+.organization-input {
+  form {
+    display: flex;
+
+    > div {
+      flex: 1;
+    }
+  }
+
+  button {
+    margin-left: 0.5rem;
+  }
+}
