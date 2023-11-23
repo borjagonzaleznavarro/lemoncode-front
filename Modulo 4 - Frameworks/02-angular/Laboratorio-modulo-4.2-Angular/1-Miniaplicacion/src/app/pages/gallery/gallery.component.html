@@ -1,0 +1,68 @@
+<div class="gallery">
+    <mat-card class="gallery-container">
+        <img src="{{ currentPicture.src }}" alt="{{ currentPicture.title }}"
+            class="main-img scale-{{ currentScale }}" />
+        <div class="gallery__prev-next">
+            <div class="prev">
+                <button mat-mini-fab color="primary" *ngIf="pictureList[0].id !== currentPicture.id"
+                    (click)="handlePreviousPic()">
+                    <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="keyboard_arrow_left"></mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" disabled *ngIf="pictureList[0].id === currentPicture.id">
+                    <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="keyboard_arrow_left"></mat-icon>
+                </button>
+            </div>
+            <div class="next">
+                <button mat-mini-fab color="primary"
+                    *ngIf="pictureList[pictureList.length - 1].id !== currentPicture.id" (click)="handleNextPic()">
+                    <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="keyboard_arrow_right"></mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" disabled
+                    *ngIf="pictureList[pictureList.length - 1].id === currentPicture.id">
+                    <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="keyboard_arrow_right"></mat-icon>
+                </button>
+            </div>
+        </div>
+    </mat-card>
+
+    <div class="gallery__controls">
+        <button mat-stroked-button color="basic" *ngIf="currentScale > 1" (click)="handleZoomOut()">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="zoom_out"></mat-icon>
+        </button>
+        <button mat-stroked-button color="basic" disabled *ngIf="currentScale === 1">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="zoom_out"></mat-icon>
+        </button>
+        <button mat-stroked-button color="basic" *ngIf="currentScale < 5" (click)="handleZoomIn()">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="zoom_in"></mat-icon>
+        </button>
+        <button mat-stroked-button disabled *ngIf="currentScale === 5">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="zoom_in"></mat-icon>
+        </button>
+        <button mat-stroked-button color="basic" *ngIf="!isPlayingGallery" (click)="handlePlayGallery()">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="play_arrow"></mat-icon>
+        </button>
+        <button mat-stroked-button color="warn" *ngIf="isPlayingGallery" (click)="handlePlayGallery()">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="stop_arrow"></mat-icon>
+        </button>
+    </div>
+
+    <div class="gallery__miniatures">
+        <button mat-icon-button color="primary" class="pag-btn" (click)="setPictureListPagination('rest')">
+            <mat-icon aria-hidden="false" aria-label="Previous" fontIcon="keyboard_arrow_left"></mat-icon>
+        </button>
+        <div class="{{
+              currentPicture.id === picture.id
+                ? 'gallery__miniature active'
+                : 'gallery__miniature'
+            }}" *ngFor="
+              let picture of pictureList
+                | slice: fistPaginationItem:lastPaginationItem
+            ">
+            <img src="{{ picture.src }}" alt="{{ picture.title }}" class="pag-img"
+                (click)="setCurrentPicture(picture)" />
+        </div>
+        <button mat-icon-button color="primary" class="pag-btn" (click)="setPictureListPagination('sum')">
+            <mat-icon aria-hidden="false" aria-label="Next" fontIcon="keyboard_arrow_right"></mat-icon>
+        </button>
+    </div>
+</div>

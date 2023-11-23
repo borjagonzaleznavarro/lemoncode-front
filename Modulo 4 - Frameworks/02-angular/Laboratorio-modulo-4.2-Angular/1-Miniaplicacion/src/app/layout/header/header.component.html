@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <a routerLink="/home" class="logo">
+        <img [src]=logoUrl alt="Stunning app">
+        <span>Stunning App</span>
+    </a>
+    <div class="push-right">
+        <a mat-stroked-button color="primary" routerLink="/login" *ngIf="!authService.isLogged()">Login</a>
+        <div *ngIf="authService.isLogged()" class="username">
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon aria-hidden="false" aria-label="User" fontIcon="account_circle"></mat-icon>
+                <span>{{ authService.getUsername() }}</span>
+                <mat-icon aria-hidden="false" aria-label="Desplegar" fontIcon="arrow_drop_down"></mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="authService.logout()">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
+<mat-toolbar *ngIf="!authService.isLogged()">
+    <app-menu-public></app-menu-public>
+</mat-toolbar>
+<mat-toolbar *ngIf="authService.isLogged()">
+    <app-menu-private></app-menu-private>
+</mat-toolbar>

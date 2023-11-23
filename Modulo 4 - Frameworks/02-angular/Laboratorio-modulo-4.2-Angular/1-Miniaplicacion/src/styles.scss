@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    padding: 1em;
+    flex: 1;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.push-right {
+    margin-left: auto;
+}
+
+.selected {
+    background-color: #fff;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin-right: 0.5em;
+    }
+}

@@ -1,0 +1,11 @@
+.rotation-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
