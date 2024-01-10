@@ -17,7 +17,7 @@
             </v-row>
         </v-form>
     </v-container>
-    <!-- sdas{{ members[0] }} -->
+
     <div class="container">
         <div>
             <pre v-if="fetchError" class="error">Error: No se encuentra la organización</pre>
@@ -32,8 +32,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useOrganizationStore } from "~/stores";
-import { organizationService } from '~~/services/organization'
+import { useOrganizationStore } from "@/stores";
+import { organizationService } from '@/services/organization'
 
 const organizationStore = useOrganizationStore();
 let members = ref([]);
@@ -46,7 +46,6 @@ onMounted(() => {
     fetchMembers();
 });
 
-
 async function fetchMembers() {
     let response = await organizationService.getOrganizationMembers(organizationStore.organization, organizationStore.page, itemsPerPage)
     hasPrevPage.value = response.hasPrevPage;
@@ -54,31 +53,6 @@ async function fetchMembers() {
     members.value = response.data.value as never[];
     fetchError.value = response.fetchError;
 }
-
-// hasPrevPage = false;
-// hasNextPage = true;
-// fetchError = false;
-// }
-
-// async function fetchMembers() {
-//     fetchError.value = false;
-
-//     const { data, error } = await useFetch(`https://api.github.com/orgs/${organization.value}/members?page=${organizationStore.page}&per_page=${itemsPerPage}`, {
-//         onResponse({ response }) {
-//             const linkHeader = response.headers.get('link');
-
-//             hasPrevPage = linkHeader && linkHeader.includes(`rel="prev"`);
-//             hasNextPage = linkHeader && linkHeader.includes(`rel=\"next\"`);
-//         },
-//     });
-//     if (error.value) {
-//         fetchError.value = true;
-//         members.value = [];
-//     } else {
-//         members.value = data.value || [];
-//     }
-//     console.log(members.value);
-// }
 
 function paginate(direction: string) {
     organizationStore.page = direction === 'prev' ? organizationStore.page - 1 : organizationStore.page + 1;
